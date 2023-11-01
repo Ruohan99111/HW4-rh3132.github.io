@@ -1,0 +1,14 @@
+name: "Yay my internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "Resume"
+      href: resume.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<rh3132.cumc.colummbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/Ruohan99111/
+output:
+  html_document:
+    theme: cerulean
