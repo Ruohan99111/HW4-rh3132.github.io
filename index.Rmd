@@ -1,5 +1,5 @@
 ---
-title: "Ruohan Hong's awesome website"
+title: "Ruohan Hong's website"
 output: 
   html_document:
     toc: true
@@ -7,8 +7,8 @@ output:
     theme: cerulean
 ---
 
-# This is Ruohan Hong's webpage! This is for P8105 Homework 4.
-
+# My journey
+I graduated form the University of Washington in 2022. I love fishing and watching crime shows. My favorite holiday is Christmas, and it's coming!
 
 I am Excited about Christmas, are you?
 
@@ -17,5 +17,8 @@ I am Excited about Christmas, are you?
 # Here is the link to my resume, check it out!
 
 [resume](resume.html)
+
+# Here is some analysis plots I've done for NYC Restaurant Inspections.
+[plotly](plotly.html)
 
 For my email and Github, please find it on the top right.

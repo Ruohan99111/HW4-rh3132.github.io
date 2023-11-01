@@ -279,8 +279,8 @@ $(document).ready(function () {
 </div>
 
 
-<p>Click [here] (index.html) to return to the index page! We’re gonna
-look at the Instacart data.</p>
+<p>Click <a href="index.html">here</a> to return to the index page!</p>
+<p>We’re gonna look at the Instacart data.</p>
 <pre class="r"><code>library(flexdashboard)
 library(p8105.datasets)
 data(&quot;rest_inspec&quot;)
@@ -299,25 +299,25 @@ library(tidyverse)</code></pre>
 <pre class="r"><code>data(&quot;rest_inspec&quot;)</code></pre>
 <pre class="r"><code>rest_inspec &lt;- rest_inspec %&gt;%
   filter(!is.na(score) &amp; 
-         boro %in% c(&quot;Manhattan&quot;, &quot;BRONX&quot;, &quot;BROOKLYN&quot;) &amp;
+         boro %in% c(&quot;BRONX&quot;, &quot;MANHATTAN&quot;, &quot;BROOKLYN&quot;) &amp;
          cuisine_description %in% c(&quot;Mexican&quot;, &quot;Chinese&quot;, &quot;Japanese&quot;, &quot;Italian&quot;, &quot;Jewish/Kosher&quot;, &quot;Russian&quot;, &quot;American&quot;, &quot;Middle Eastern&quot;, &quot;Spanish&quot;, &quot;Greek&quot;, &quot;Thai&quot;)) %&gt;%
-  select(boro,cuisine_description, dba, critical_flag, score, grade)</code></pre>
+  select(boro, cuisine_description, dba, critical_flag, score, grade)</code></pre>
 <pre class="r"><code>print(rest_inspec)</code></pre>
-<pre><code>## # A tibble: 64,594 × 6
-##    boro  cuisine_description dba                       critical_flag score grade
-##    &lt;chr&gt; &lt;chr&gt;               &lt;chr&gt;                     &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;
-##  1 BRONX Chinese             NEW LIN&#39;S GARDEN NY       Critical         22 &lt;NA&gt; 
-##  2 BRONX Chinese             KIM HUA                   Not Critical      9 A    
-##  3 BRONX American            SYMPHONY DINER            Not Critical     22 &lt;NA&gt; 
-##  4 BRONX Mexican             LOS HERMANOS SALAZAR RES… Critical          6 A    
-##  5 BRONX American            GLACKEN&#39;S BAR             Not Critical     23 &lt;NA&gt; 
-##  6 BRONX American            NEW YORK YANKEES MVP CLUB Not Applicab…     0 A    
-##  7 BRONX American            HIGHLANDERS (STAND 318)   Critical          7 A    
-##  8 BRONX American            STADIUM PIZZA BAR RESTAU… Not Applicab…     0 A    
-##  9 BRONX American            YANKEE TAVERN             Not Critical     13 A    
-## 10 BRONX American            NATHAN&#39;S (STAND 312)      Not Critical     10 A    
-## # ℹ 64,584 more rows</code></pre>
-<p>The <code>rest_inspec</code> dataset contains 64594 observations and
+<pre><code>## # A tibble: 149,097 × 6
+##    boro      cuisine_description dba                   critical_flag score grade
+##    &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;                 &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;
+##  1 MANHATTAN Italian             SPINELLI&#39;S PIZZA/GYR… Not Critical     40 &lt;NA&gt; 
+##  2 MANHATTAN American            THE HAROLD            Critical          9 A    
+##  3 MANHATTAN American            BRGR                  Not Critical     12 A    
+##  4 MANHATTAN American            EPICE CAFE            Critical          8 &lt;NA&gt; 
+##  5 MANHATTAN Thai                SONG KRAN THAI        Not Critical     28 &lt;NA&gt; 
+##  6 MANHATTAN Chinese             GRAND SICHUAN         Not Critical     23 &lt;NA&gt; 
+##  7 MANHATTAN American            TOMMY HILFIGER        Not Critical     26 &lt;NA&gt; 
+##  8 MANHATTAN American            THE HAROLD            Critical         17 &lt;NA&gt; 
+##  9 MANHATTAN American            DEATH AVE             Critical          6 &lt;NA&gt; 
+## 10 MANHATTAN American            JOHNY&#39;S LUNCHEONETTE  Critical          7 A    
+## # ℹ 149,087 more rows</code></pre>
+<p>The <code>rest_inspec</code> dataset contains 149097 observations and
 <code>6</code> variables.</p>
 <p>We only want to look at restaurants located in the boroughs of
 “Manhattan”, “BRONX”, and “BROOKLYN”. Cuisine Filter: The dataset was

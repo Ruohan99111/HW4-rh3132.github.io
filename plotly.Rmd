@@ -6,8 +6,9 @@ output:
     vertical_layout: fill
 ---
 
-Click [here] (index.html) to return to the index page!
-We're gonna look at the Instacart data.
+Click [here](index.html) to return to the index page!
+
+We're gonna look at the NYC Restaurant Inspections data.
 ```{r load data}
 library(flexdashboard)
 library(p8105.datasets)
@@ -18,14 +19,15 @@ library(ggplot2)
 
 ```{r}
 data("rest_inspec")
+
 ```
 
 ```{r}
 rest_inspec <- rest_inspec %>%
   filter(!is.na(score) & 
-         boro %in% c("Manhattan", "BRONX", "BROOKLYN") &
+         boro %in% c("BRONX", "MANHATTAN", "BROOKLYN") &
          cuisine_description %in% c("Mexican", "Chinese", "Japanese", "Italian", "Jewish/Kosher", "Russian", "American", "Middle Eastern", "Spanish", "Greek", "Thai")) %>%
-  select(boro,cuisine_description, dba, critical_flag, score, grade)
+  select(boro, cuisine_description, dba, critical_flag, score, grade)
 
 ```
 
@@ -39,15 +41,16 @@ We only want to look at restaurants located in the boroughs of "Manhattan", "BRO
 Cuisine Filter: The dataset was filtered to include only specific cuisine types: "Mexican", "Chinese", "Japanese", "Italian", "Jewish/Kosher", "Russian", "American", "Middle Eastern", "Spanish", "Greek", and "Thai".
 Only relevant columns were retained for analysis: cuisine_description, dba, critical_flag, score, and grade.
 
-# Which cuisine types are most common in each borough?
+# 1. Which cuisine types are most common in each borough?
 ```{r most common in each borogh}
 ggplot(rest_inspec, aes(fill=cuisine_description, y=..count.., x=boro)) + 
   geom_bar(position="stack") +
   labs(title="Cuisine Distribution by Borough") +
   theme_minimal()
 ```
+American cuisine is the most common in Brooklyn, Manhattan and bronx, follow by Chinese cuisine. 
 
-# How does the average health inspection score differ among the various cuisines?
+# 2. How does the average health inspection score differ among the various cuisines?
 ```{r}
 ggplot(rest_inspec, aes(x=cuisine_description, y=score)) + 
   geom_boxplot() +
@@ -56,7 +59,7 @@ ggplot(rest_inspec, aes(x=cuisine_description, y=score)) +
   theme(axis.text.x=element_text(angle=45, hjust=1))
 ```
 
-# What's the distribution of grades across the different boroughs?
+# 3. What's the distribution of grades across the different boroughs?
 ```{r}
 ggplot(rest_inspec, aes(x=grade)) + 
   geom_bar() +
