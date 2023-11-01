@@ -1,0 +1,47 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This page has information about me experience!
+
+
+##Academic background
+
+**Columbia University, Mailman School of Public Health** --New York, NY
+Master of Public Health in Epidemiology; certificate in Advanced Epidemiology | GPA: 3.94 Sept 2022 - Jun 2024
+
+**University of Washington, School of Public Health** -- Seattle, WA
+Bachelor of Arts in Food system, Nutrition and Health Minor in Global Health | GPA: 3.7 Sept 2018 - Jun 2022
+
+##SKILLSET
+Data Analysis & Visualization: R, MySQL, SAS, SPSS, MATLAB, Tableau, Figma
+Research: Survival analysis, regression, proposal & grant writing, IRB submission, survey analysis, literature review
+
+##EXPERIENCE
+**Global Healthy Living Foundation** New York
+Research Fellow Jun 2023 - Present
+- Conduct literature reviews, design studies, and actively participate in grant writing initiatives; secure an average of $100k in research grants.
+- Employ R, SAS and Excel to conduct rigorous data analytics on datasets of over 25,000 patients, generating descriptive statistics and creating insightful visualizations; enhance health information dissemination by 14% within patient groups.
+**Columbia University Mailman School of Public Health** New York
+Research Data Analyst May 2023 - Present
+- Utilize R and SPSS to clean, maintain, analyze, and validate survey data for 500+ participants, ensuring robust data integrity
+and reducing data inconsistencies by 23%.
+- Apply specialized statistical methods such as regression and survival analysis to unearth key patterns and insights.
+**GlaxoSmithKline**
+Vaccine Quality Control Analysis Intern Apr 2021 - Aug 2021
+- Steer quality objectives and improvement plans, using Tableau to analyzing key indicators to foster continual enhancements.
+- Monitor FDA vaccine announcements, scrutinize vaccine quality test reports using Excel, and collate batch data for
+comprehensive analysis.
+
+##PROJECT
+**Data-Driven Insights into the Correlation Between Income and Sleep Quality** - Utilized large datasets and applied correlations, logistic regression, and t- tests to evaluate the relationship using SAS.
+- Authored evidence-based abstracts and tables to demonstrate a correlation between lower income and reduced sleep quality.
+**Correlation Analysis of Serological and Immune Indicators of HIV-1 Recent Infection**
+- Established logistic regression model to compare the differences of indicators between recent infection and previous infection
+samples, and further conducted statistical data analysis using SPSS.
+- Discovered that no correlation between S/CO and CD4 count in different immune states.
