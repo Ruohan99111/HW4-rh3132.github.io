@@ -11,10 +11,10 @@ Click [here](index.html) to return to the index page!
 We're gonna look at the NYC Restaurant Inspections data.
 ```{r load data}
 library(flexdashboard)
-library(p8105.datasets)
 data("rest_inspec")
 library(tidyverse)
-library(ggplot2)
+library(p8105.datasets)
+library(plotly)
 ```
 
 ```{r}
@@ -43,32 +43,45 @@ Only relevant columns were retained for analysis: cuisine_description, dba, crit
 
 # 1. Which cuisine types are most common in each borough?
 ```{r most common in each borogh}
-ggplot(rest_inspec, aes(fill=cuisine_description, y=..count.., x=boro)) + 
-  geom_bar(position="stack") +
-  labs(title="Cuisine Distribution by Borough") +
-  theme_minimal()
+cuisine_counts <- rest_inspec %>%
+  count(boro, cuisine_description) %>%
+  arrange(boro, desc(n))
+
+fig_1 <- plot_ly(data = cuisine_counts, x = ~boro, y = ~n, type = 'bar', color = ~cuisine_description, colors = 'viridis') %>%
+  layout(yaxis = list(title = 'Number of Establishments'),
+         xaxis = list(title = 'Borough'),
+         barmode = 'stack',
+         title = 'Count of Cuisine Types by Borough')
+fig_1 
 ```
 American cuisine is the most common in Brooklyn, Manhattan and bronx, follow by Chinese cuisine. 
 
 # 2. How does the average health inspection score differ among the various cuisines?
 ```{r}
-ggplot(rest_inspec, aes(x=cuisine_description, y=score)) + 
-  geom_boxplot() +
-  labs(title="Health Inspection Scores by Cuisine") +
-  theme_minimal() +
-  theme(axis.text.x=element_text(angle=45, hjust=1))
+color_palette <- scales::hue_pal()(length(unique(rest_inspec$cuisine_description)))
+
+fig_2 <- rest_inspec %>%
+  plot_ly(x = ~cuisine_description, y = ~score, type = 'box', color = ~cuisine_description, colors = color_palette) %>%
+  layout(yaxis = list(title = 'Health Inspection Scores'),
+         xaxis = list(title = 'Cuisine Description'),
+         title = 'Health Inspection Scores by Cuisine')
+fig_2
 ```
 
 # 3. What's the distribution of grades across the different boroughs?
 ```{r}
-ggplot(rest_inspec, aes(x=grade)) + 
-  geom_bar() +
-  facet_wrap(~boro) +
-  labs(title="Distribution of Grades by Borough") +
-  theme_minimal()
+grade_distribution <- rest_inspec %>%
+  count(boro, grade) %>%
+  arrange(boro, grade)
+
+fig_3 <- plot_ly(data = grade_distribution, x = ~boro, y = ~n, type = 'bar', color = ~grade, colors = 'Paired') %>%
+  layout(yaxis = list(title = 'Count of Grades'),
+         xaxis = list(title = 'Borough'),
+         barmode = 'stack',
+         title = 'Distribution of Grades Across Boroughs')
+fig_3
 ```
-
-
+The majority of restaurants loctaed in Bronx, Brooklyn and manhattan have grade A.
 
 
 
