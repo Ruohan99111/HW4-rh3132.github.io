@@ -14,11 +14,14 @@ I am Excited about Christmas, are you?
 
 ![](christmas.jpeg)
 
-# Here is the link to my resume, check it out!
+# Resume
+Here is the link to my resume, check it out!
 
 [resume](resume.html)
 
-# Here is some analysis plots I've done for NYC Restaurant Inspections.
+# Analysis | Flexdashboard
+Here is some analysis plots I've done for NYC Restaurant Inspections.
+
 [plotly](plotly.html)
 
 For my email and Github, please find it on the top right.
