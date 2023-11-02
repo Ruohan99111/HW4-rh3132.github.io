@@ -22,6 +22,6 @@ Here is the link to my resume, check it out!
 # Analysis | Flexdashboard
 Here is some analysis plots I've done for NYC Restaurant Inspections.
 
-[plotly](plotly.html)
+[Dashboard](plotly.html)
 
 For my email and Github, please find it on the top right.

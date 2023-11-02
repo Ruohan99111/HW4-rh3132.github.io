@@ -22,6 +22,7 @@ data("rest_inspec")
 
 ```
 
+
 ```{r}
 rest_inspec <- rest_inspec %>%
   filter(!is.na(score) & 
@@ -30,6 +31,8 @@ rest_inspec <- rest_inspec %>%
   select(boro, cuisine_description, dba, critical_flag, score, grade)
 
 ```
+
+
 
 ```{r}
 print(rest_inspec)
@@ -41,7 +44,10 @@ We only want to look at restaurants located in the boroughs of "Manhattan", "BRO
 Cuisine Filter: The dataset was filtered to include only specific cuisine types: "Mexican", "Chinese", "Japanese", "Italian", "Jewish/Kosher", "Russian", "American", "Middle Eastern", "Spanish", "Greek", and "Thai".
 Only relevant columns were retained for analysis: cuisine_description, dba, critical_flag, score, and grade.
 
-# 1. Which cuisine types are most common in each borough?
+Column {data-width=650}
+-----------------------------------------------------------------------
+### Chart A
+Which cuisine types are most common in each borough?
 ```{r most common in each borogh}
 cuisine_counts <- rest_inspec %>%
   count(boro, cuisine_description) %>%
@@ -56,7 +62,13 @@ fig_1
 ```
 American cuisine is the most common in Brooklyn, Manhattan and bronx, follow by Chinese cuisine. 
 
-# 2. How does the average health inspection score differ among the various cuisines?
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+How does the average health inspection score differ among the various cuisines?
 ```{r}
 color_palette <- scales::hue_pal()(length(unique(rest_inspec$cuisine_description)))
 
@@ -68,7 +80,10 @@ fig_2 <- rest_inspec %>%
 fig_2
 ```
 
-# 3. What's the distribution of grades across the different boroughs?
+
+
+### Chart C
+What's the distribution of grades across the different boroughs?
 ```{r}
 grade_distribution <- rest_inspec %>%
   count(boro, grade) %>%
